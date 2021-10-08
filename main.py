@@ -13,9 +13,11 @@ class grayProcess:
         self.dialog = Gtk.FileChooserDialog(
             "Please Choose a File",
             None,
-            Gtk.FileChooserDialog.OPEN,
-            (Gtk.STOCK_CANCLE, Gtk.ResponType.CANCLE,
-             Gtk.STOCK_OPEN, Gtk.ResponType.OK)
+            Gtk.FileChooserAction.OPEN,
+            (Gtk.STOCK_CANCLE, 
+             Gtk.ResponType.CANCLE,
+             Gtk.STOCK_OPEN, 
+             Gtk.ResponType.OK)
         )
 
         self.response = self.dialog.run()
@@ -28,7 +30,7 @@ class grayProcess:
             self.search.set_text(str(url))
             imgOri.set_from_file(url)
 
-        elif self.response == Gtk.ResponseType.Cancle:
+        elif self.response == Gtk.ResponseType.CANCLE:
             print("Cancle Clicked")
 
         self.dialog.destroy()
